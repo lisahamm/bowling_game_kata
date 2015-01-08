@@ -8,4 +8,9 @@ describe BowlingGame do
     20.times {bowling_game.roll(0)}
     expect(bowling_game.score).to eq 0
   end
+
+  it "can score a simple game" do
+    20.times {bowling_game.roll(1)}
+    expect(bowling_game.score).to eq 20
+  end
 end
