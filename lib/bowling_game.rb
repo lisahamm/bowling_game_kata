@@ -11,10 +11,10 @@ class BowlingGame
     total = 0
     i = 0
     while i < @rolls.length-1
-      if @rolls[i] == 10
+      if strike?(i)
         total += @rolls[i] + @rolls[i+1] + @rolls [i+2]
         i += 1
-      elsif @rolls[i] + @rolls[i+1] == 10
+      elsif spare?(i)
         total += @rolls[i] + @rolls[i+1] + @rolls [i+2]
         i += 2
       else
@@ -23,5 +23,13 @@ class BowlingGame
       end
     end
     total
+  end
+
+  def strike?(i)
+    @rolls[i] == 10
+  end
+
+  def spare?(i)
+    @rolls[i] + @rolls[i+1] == 10
   end
 end
