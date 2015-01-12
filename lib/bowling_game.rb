@@ -10,9 +10,11 @@ class BowlingGame
   def score
     total = 0
     i = 0
+    frame = 0
     while i < @rolls.length-1
       if strike?(i)
         total += @rolls[i] + @rolls[i+1] + @rolls [i+2]
+        i += 2 if frame == 9
         i += 1
       elsif spare?(i)
         total += @rolls[i] + @rolls[i+1] + @rolls [i+2]
@@ -21,6 +23,7 @@ class BowlingGame
         total += @rolls[i] + @rolls[i+1]
         i += 2
       end
+      frame += 1
     end
     total
   end
