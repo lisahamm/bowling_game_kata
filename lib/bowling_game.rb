@@ -1,4 +1,5 @@
 class BowlingGame
+  attr_reader :rolls
   def initialize
     @rolls = []
   end
@@ -28,22 +29,22 @@ class BowlingGame
   end
 
   def strike?(frame_index)
-    @rolls[frame_index] == 10
+    rolls[frame_index] == 10
   end
 
   def spare?(frame_index)
-    @rolls[frame_index] + @rolls[frame_index+1] == 10
+    rolls[frame_index] + rolls[frame_index+1] == 10
   end
 
   def sum_of_balls_in_frame(frame_index)
-    @rolls[frame_index] + @rolls[frame_index+1]
+    rolls[frame_index] + rolls[frame_index+1]
   end
 
   def spare_bonus(frame_index)
-    @rolls[frame_index + 2]
+    rolls[frame_index + 2]
   end
 
   def strike_bonus(frame_index)
-    @rolls[frame_index+1] + @rolls[frame_index+2]
+    rolls[frame_index+1] + rolls[frame_index+2]
   end
 end
